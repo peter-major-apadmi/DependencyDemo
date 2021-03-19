@@ -32,7 +32,7 @@ extension Resolver: ResolverRegistering {
 
         register(SignOutCommand.self) {
             return SignOutCommandImpl(cognitoService: resolve(),
-                                      userRepository: resolve())
+                                      cachingDecorators: resolve())
         }.scope(.unique)
 
         register(URLSession.self) {
@@ -43,9 +43,33 @@ extension Resolver: ResolverRegistering {
             return UserDefaults.standard
         }.scope(.unique)
 
+        // we're want to add a cache using a decorator
+        // so rather than register the repository with the UserRepository protocol
+        // we'll register the decorator with the UserRepository protocol
+        // we'll still use the container to build the underlying repository for the decorator
+        // we'll also register the all caching decorators so that they can be cleared easily in the SignOutCommand
+
+        register {
+            return UserRepositoryImpl(api: resolve(),
+                                      settings: resolve())
+        }.scope(.unique)
+
+        register {
+            return UserRepositoryCachingDecorator(userRepository: resolve(UserRepositoryImpl.self))
+        }.implements(UserRepository.self)
+         .scope(.application)
+
+        register([ICachingDecorator].self) {
+            return [
+                resolve(UserRepositoryCachingDecorator.self)
+            ]
+        }
+
+        /* original registration
         register(UserRepository.self) {
             return UserRepositoryImpl(api: resolve(),
                                       settings: resolve())
         }.scope(.unique)
+        */
     }
 }

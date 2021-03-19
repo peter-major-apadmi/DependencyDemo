@@ -14,19 +14,17 @@ protocol SignOutCommand {
 
 class SignOutCommandImpl: SignOutCommand {
     let cognitoService: CognitoService
-    let userRepository: UserRepository
+    let cachingDecorators: [ICachingDecorator]
 
     init(cognitoService: CognitoService,
-         userRepository: UserRepository) {
+         cachingDecorators: [ICachingDecorator]) {
         self.cognitoService = cognitoService
-        self.userRepository = userRepository
+        self.cachingDecorators = cachingDecorators
     }
 
     func signOut() {
         cognitoService.signOut()
 
-        if let clearable = userRepository as? ICachingDecorator {
-            clearable.clear()
-        }
+        cachingDecorators.forEach { $0.clear() }
     }
 }
