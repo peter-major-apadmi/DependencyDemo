@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		C80966622603B2A00021B0B5 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80966612603B2A00021B0B5 /* UserRepository.swift */; };
 		C81CA7E82603BFF400E6264C /* SignOutCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CA7E72603BFF400E6264C /* SignOutCommand.swift */; };
 		C81CA7EE2603C43A00E6264C /* UserRepositoryCachingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CA7ED2603C43A00E6264C /* UserRepositoryCachingDecorator.swift */; };
+		C852D57F2604A4A4005EFFA0 /* Resolver+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C852D57E2604A4A4005EFFA0 /* Resolver+ViewController.swift */; };
 		C8AFE94C26035A4D0021F63D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AFE94B26035A4D0021F63D /* AppDelegate.swift */; };
 		C8AFE95026035A4D0021F63D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AFE94F26035A4D0021F63D /* HomeViewController.swift */; };
 		C8AFE95326035A4D0021F63D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8AFE95126035A4D0021F63D /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		C8AFE998260361AB0021F63D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AFE997260361AB0021F63D /* HomePresenter.swift */; };
 		C8AFE99E260366420021F63D /* AppNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AFE99D260366420021F63D /* AppNavigator.swift */; };
 		C8AFE9AA260372250021F63D /* CognitoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AFE9A9260372250021F63D /* CognitoService.swift */; };
+		C8BA7B972604A24000EE0250 /* Resolver+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA7B962604A24000EE0250 /* Resolver+Injection.swift */; };
 		ED2540C6111F382228C89900 /* Pods_DependencyDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DE3AC7C2D3A1576B1B09C3 /* Pods_DependencyDemoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,7 @@
 		C80966612603B2A00021B0B5 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		C81CA7E72603BFF400E6264C /* SignOutCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutCommand.swift; sourceTree = "<group>"; };
 		C81CA7ED2603C43A00E6264C /* UserRepositoryCachingDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepositoryCachingDecorator.swift; sourceTree = "<group>"; };
+		C852D57E2604A4A4005EFFA0 /* Resolver+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+ViewController.swift"; sourceTree = "<group>"; };
 		C8AFE94826035A4D0021F63D /* DependencyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependencyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8AFE94B26035A4D0021F63D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8AFE94F26035A4D0021F63D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		C8AFE997260361AB0021F63D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		C8AFE99D260366420021F63D /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
 		C8AFE9A9260372250021F63D /* CognitoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoService.swift; sourceTree = "<group>"; };
+		C8BA7B962604A24000EE0250 /* Resolver+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Injection.swift"; sourceTree = "<group>"; };
 		E7D108F89E27921CC99E8CAC /* Pods-DependencyDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DependencyDemo.debug.xcconfig"; path = "Target Support Files/Pods-DependencyDemo/Pods-DependencyDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,7 +113,6 @@
 				2E5F02D8459439A8ACC7692E /* Pods-DependencyDemoTests.debug.xcconfig */,
 				0FB98EC8854A353183850247 /* Pods-DependencyDemoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -147,6 +150,8 @@
 				C8AFE95926035A4E0021F63D /* Info.plist */,
 				C8AFE95626035A4E0021F63D /* LaunchScreen.storyboard */,
 				C8AFE95126035A4D0021F63D /* Main.storyboard */,
+				C8BA7B962604A24000EE0250 /* Resolver+Injection.swift */,
+				C852D57E2604A4A4005EFFA0 /* Resolver+ViewController.swift */,
 				C809665B2603AB920021B0B5 /* Settings.swift */,
 				C8AFE98F260361960021F63D /* SignInPresenter.swift */,
 				C8AFE98A260360BA0021F63D /* SignInViewController.swift */,
@@ -179,6 +184,7 @@
 				C8AFE94426035A4D0021F63D /* Sources */,
 				C8AFE94526035A4D0021F63D /* Frameworks */,
 				C8AFE94626035A4D0021F63D /* Resources */,
+				8D3381CCC56B650392726253 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,6 +294,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8D3381CCC56B650392726253 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DependencyDemo/Pods-DependencyDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DependencyDemo/Pods-DependencyDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DependencyDemo/Pods-DependencyDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A02C1E38B826CFE4DF7CA5ED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -328,7 +351,9 @@
 				C81CA7E82603BFF400E6264C /* SignOutCommand.swift in Sources */,
 				C8AFE9AA260372250021F63D /* CognitoService.swift in Sources */,
 				C8AFE94C26035A4D0021F63D /* AppDelegate.swift in Sources */,
+				C8BA7B972604A24000EE0250 /* Resolver+Injection.swift in Sources */,
 				C809665226039F400021B0B5 /* DogImagesResponse.swift in Sources */,
+				C852D57F2604A4A4005EFFA0 /* Resolver+ViewController.swift in Sources */,
 				C8AFE99E260366420021F63D /* AppNavigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

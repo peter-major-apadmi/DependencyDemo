@@ -6,19 +6,16 @@
 //
 
 import UIKit
+import Resolver
 
 protocol AppNavigator {
     func initialize() -> UIViewController
 }
 
-class AppNavigatorImpl: AppNavigator {
+class AppNavigatorImpl: AppNavigator, Resolving {
 
     private let settings: Settings
     private var root: UINavigationController!
-
-    private var storyboard: UIStoryboard = {
-        return UIStoryboard(name: "Main", bundle: nil)
-    }()
 
     init(settings: Settings) {
         self.settings = settings
@@ -34,38 +31,14 @@ class AppNavigatorImpl: AppNavigator {
     }
 
     private func createHomeViewController() -> HomeViewController {
-        guard let viewController = storyboard.instantiateViewController(
-                withIdentifier: HomeViewController.name) as? HomeViewController else {
-            fatalError("Unable to create HomeViewController")
-        }
-
-        let session = URLSession.shared
-        let api = DogApiImpl(session: session)
-        let userRepository = UserRepositoryImpl(api: api, settings: settings)
-        let presenter = HomePresenter(userRepository: userRepository)
-        presenter.viewDelegate = viewController
-
-        viewController.presenter = presenter
+        let viewController: HomeViewController = resolver.resolve()
         viewController.onSignOut = handleSignOut
-
         return viewController
     }
 
     private func createSignInViewController() -> SignInViewController {
-        guard let viewController = storyboard.instantiateViewController(
-                withIdentifier: SignInViewController.name) as? SignInViewController else {
-            fatalError("Unable to create SignInViewController")
-        }
-
-        let session = URLSession.shared
-        let api = DogApiImpl(session: session)
-        let cognitoService = CognitoServiceImpl(api: api, settings: settings)
-        let presenter = SignInPresenter(cognitoService: cognitoService)
-        presenter.viewDelegate = viewController
-
-        viewController.presenter = presenter
+        let viewController: SignInViewController = resolver.resolve()
         viewController.onSignInSuccess = handleSignInSuccess
-
         return viewController
     }
 
@@ -75,15 +48,7 @@ class AppNavigatorImpl: AppNavigator {
     }
 
     private func handleSignOut() {
-        let session = URLSession.shared
-        let api = DogApiImpl(session: session)
-        let cognitoService = CognitoServiceImpl(api: api, settings: settings)
-        let userRepository = UserRepositoryImpl(api: api, settings: settings)
-
-        let signOutCommand = SignOutCommandImpl(
-            cognitoService: cognitoService,
-            userRepository: userRepository
-        )
+        let signOutCommand: SignOutCommand = resolver.resolve()
         signOutCommand.signOut()
 
         let viewController = createSignInViewController()

@@ -6,17 +6,17 @@
 //
 
 import UIKit
+import Resolver
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigator: AppNavigator!
+
+    @Injected private var navigator: AppNavigator
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let settings = SettingsImpl(userDefaults: UserDefaults.standard)
-        navigator = AppNavigatorImpl(settings: settings)
         let rootViewController = navigator.initialize()
 
         window = UIWindow()

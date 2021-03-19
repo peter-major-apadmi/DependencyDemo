@@ -3,7 +3,7 @@ platform :ios, '13.0'
 target 'DependencyDemo' do
   use_frameworks!
 
-  # Pods for DependencyDemo
+  pod "Resolver"
 
   target 'DependencyDemoTests' do
     inherit! :search_paths
