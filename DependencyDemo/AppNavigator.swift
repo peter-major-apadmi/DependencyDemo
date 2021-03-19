@@ -60,3 +60,18 @@ class AppNavigatorImpl: AppNavigator, Resolving {
         return userName != nil
     }
 }
+
+/*
+ NOTE: if you're a purist and you don't like the container framework "leaking" into your code,
+       you could create an factory to hide the "Resolver" dependency
+
+ protocol Factory {
+     func create<T>(_ type: T.Type) -> T
+ }
+
+ class ResolverFactory: Factory, Resolving {
+     func create<T>(_ type: T.Type) -> T {
+         return resolver.resolve()
+     }
+ }
+ */
